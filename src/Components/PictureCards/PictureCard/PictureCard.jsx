@@ -58,11 +58,11 @@ const PictureCard = ({image,i}) => {
                             <Typography variant = "h5" gutterBottom>
                                 {image.title}
                             </Typography>
-                            <Typography variant = "h5" gutterBottom>
-                                {image.date}
+                            <Typography variant = "h7" gutterBottom>
+                                Taken on : {image.date}
                             </Typography>
                             <IconButton>
-                                {LikeFlag===1&&<ThumbUpIcon type="button" onClick={() => updateLikeFlag(LikeFlag) } value={LikeFlag} />}
+                                {LikeFlag===1&&<ThumbUpIcon htmlColor='CornflowerBlue' type="button" onClick={() => updateLikeFlag(LikeFlag) } value={LikeFlag} />}
                                 {LikeFlag===0&&<ThumbUpOffAltIcon type="button" onClick={() => updateLikeFlag(LikeFlag) } value={LikeFlag} />}
                             </IconButton>
                             

@@ -5,7 +5,12 @@ import PictureCards from './Components/PictureCards/PictureCards';
 
 import { useEffect, useState } from 'react';
 import { CircularProgress } from '@mui/material';
+
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
+
 function App() {
+  document.title = "SpaceBook"
   const [NasaData, setNasaData] = useState();
   //Fetches data from NASA APOD API
   useEffect(() => {
@@ -16,29 +21,22 @@ function App() {
   //Checks to see if NASA Data has loaded yet
   //If Yes, Loads the PictureCards for all the data that has been fetched
   //If No, Displays a "Loading...Please wait message"
-  if(NasaData){
-    console.log(NasaData)
-    return (
-      <div className="App">
-        <PictureCards NasaData = {NasaData} />
-      </div>
-    );
-  }else{
-    return(
-      <div style={{ alignItems: "center", 
-                    display: "flex", 
-                    justifyContent: "center", 
-                    height: "100vh", 
-                    width: "100vw" }}>
-        <CircularProgress />
-        <span style={{ justifyContent: "center", 
-                        position: "fixed", 
-                        top: "55%" }}>
-                        Loading NASA Data...please wait
-        </span>
-      </div>
-    )
-  }
+  return (
+    <>
+    {NasaData && 
+    <div className="App" >
+      <PictureCards NasaData = {NasaData} />
+    </div>
+    }
+    {!NasaData &&
+    <div style={{ alignItems: "center", display: "flex", justifyContent: "center", height: "100vh", width: "100vw" }}>
+      <CircularProgress />
+      <span style={{ justifyContent: "center", position: "fixed", top: "55%" }}>Loading NASA Data...please wait</span>
+    </div>
+    }
+    </>
+  );
+  
 }
 
 export default App;
