@@ -2,11 +2,14 @@ import logo from './logo.svg';
 import './App.css';
 
 import PictureCards from './Components/PictureCards/PictureCards';
+import Navbar from './Components/Navbar/Navbar';
+import Loading from './Components/Loading/Loading';
 
 import { useEffect, useState } from 'react';
 import { CircularProgress } from '@mui/material';
 
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 
 
 function App() {
@@ -22,19 +25,24 @@ function App() {
   //If Yes, Loads the PictureCards for all the data that has been fetched
   //If No, Displays a "Loading...Please wait message"
   return (
-    <>
-    {NasaData && 
-    <div className="App" >
-      <PictureCards NasaData = {NasaData} />
-    </div>
-    }
-    {!NasaData &&
-    <div style={{ alignItems: "center", display: "flex", justifyContent: "center", height: "100vh", width: "100vw" }}>
-      <CircularProgress />
-      <span style={{ justifyContent: "center", position: "fixed", top: "55%" }}>Loading NASA Data...please wait</span>
-    </div>
-    }
-    </>
+    <Router>
+      <div>
+      <Navbar />
+      <div style ={{marginTop: 80}}>
+      <Routes>
+        <Route exact path ="/"element = {NasaData && 
+            <PictureCards NasaData = {NasaData} />
+            ||
+            !NasaData &&
+            <Loading />
+          
+          }/>
+          
+        
+      </Routes>
+      </div>
+      </div>
+    </Router>
   );
   
 }

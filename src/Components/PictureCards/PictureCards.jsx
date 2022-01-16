@@ -1,10 +1,12 @@
 import React from 'react'
 import { Grid } from '@mui/material'
 import PictureCard from './PictureCard/PictureCard'
+import './PictureCards.css'
 
 const PictureCards = ({NasaData, updateLikeFlag}) => {
     return (
-        <main>
+        
+        <div className="App" >
             <Grid container justify = "center" spacing = {5}>
                 {//Rendering a "PictureCard" which displays data for each picture
                 NasaData.map((image,ikey)=>
@@ -14,7 +16,7 @@ const PictureCards = ({NasaData, updateLikeFlag}) => {
                     </Grid>
                 )}
             </Grid>
-        </main>
+        </div>
     )
 }
 
