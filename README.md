@@ -2,6 +2,8 @@ Can be accessed at: https://spacebook-theeban.herokuapp.com/
 
 This page is fully mobile responsive as well
 
+Utilizes: MUI/Material, MUI/icons-material, react-router-dom
+
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Getting Started with Create React App
