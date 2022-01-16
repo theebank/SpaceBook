@@ -1,5 +1,7 @@
 Can be accessed at: https://spacebook-theeban.herokuapp.com/
 
+This page is fully mobile responsive as well
+
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # Getting Started with Create React App
